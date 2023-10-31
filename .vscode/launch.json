@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "HelloWorldFunction",
+      "invokeTarget": {
+        "target": "template",
+        "templatePath": "${workspaceFolder}/src/template.yml",
+        "logicalId": "HelloWorldFunction"
+      },
+      "lambda": {
+        "payload": {
+          "path": "${workspaceFolder}/src/events/event.json"
+        }
+      }
+    }
+  ]
+}
