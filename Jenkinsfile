@@ -7,6 +7,7 @@ pipeline {
         stage('develop') {
             steps {
                 echo 'Develop'
+                sh (ls)
             }
         }
           stage('staging') {
