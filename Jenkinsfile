@@ -14,9 +14,9 @@ pipeline {
                 echo 'staging'
             }
         }
-          stage('main') {
+          stage('Prod') {
             steps {
-                echo 'main'
+                echo 'Prod'
             }
         }
     }
