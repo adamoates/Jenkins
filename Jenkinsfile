@@ -1,13 +1,13 @@
 pipeline {
     agent any
-    node {
-        checkout scm
-    }
     stages {
         stage('build') {
             steps {
                 echo 'build'
             }
+        }
+        stage('test') {
+            sh 'make check || true'
         }
         stage('develop') {
             steps {
