@@ -1,26 +1,25 @@
 pipeline {
     agent any
     options {
-        timeout(time:1, unit: 'SECONDS')
     }
     stages {
         stage('build') {
             steps {
                 echo 'build'
+                echo $USER
             }
         }
-          
         stage('develop') {
             steps {
                 echo 'develop'
             }
         }
-          stage('staging') {
+        stage('staging') {
             steps {
                 echo 'staging'
             }
         }
-          stage('Prod') {
+        stage('Prod') {
             steps {
                 echo 'Prod'
             }
