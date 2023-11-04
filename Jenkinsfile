@@ -4,7 +4,6 @@ pipeline {
         stage('build') {
             steps {
                 echo 'build'
-                echo $USER
             }
         }
         stage('develop') {
