@@ -4,9 +4,15 @@ pipeline {
         timeout(time:1, unit: 'SECONDS')
     }
     stages {
+        stage('build') {
+            steps {
+                echo 'build'
+            }
+        }
+          
         stage('develop') {
             steps {
-                echo 'Develop'
+                echo 'develop'
             }
         }
           stage('staging') {
