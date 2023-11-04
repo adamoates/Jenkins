@@ -9,6 +9,12 @@ pipeline {
         stage('develop') {
             steps {
                 echo 'develop'
+                sh ''' 
+                    MSG='Hello World 
+                    (
+                        echo MSG
+                    )
+                ''''
             }
         }
         stage('staging') {
