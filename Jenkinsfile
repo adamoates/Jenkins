@@ -7,7 +7,9 @@ pipeline {
             }
         }
         stage('test') {
-            sh 'make check || true'
+            steps {
+                sh 'make check || true'
+            }
         }
         stage('develop') {
             steps {
