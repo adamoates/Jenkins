@@ -1,22 +1,43 @@
 pipeline {
     agent any
-    options {
-        timeout(time:1, unit: 'SECONDS')
-    }
     stages {
-        stage('develop') {
+        stage('checkout') {
             steps {
-                echo 'Develop'
+                echo 'checkout'  
             }
         }
-          stage('staging') {
+        stage('build') {
+            steps {
+                echo 'build'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'make check || true'
+            }
+        }
+        stage('develop') {
+            when {
+                environment name: 'BRANCH_NAME',  value: 'develop'
+            }
+            steps {
+                echo 'develop'          
+            }
+        }
+        stage('staging') {
+             when {
+                environment name: 'BRANCH_NAME', value: 'staging'
+            }
             steps {
                 echo 'staging'
             }
         }
-          stage('main') {
+        stage('Prod') {
+             when {
+                environment name: 'BRANCH_NAME', value: 'master'
+            }
             steps {
-                echo 'main'
+                echo 'master'
             }
         }
     }
