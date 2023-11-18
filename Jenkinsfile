@@ -18,7 +18,7 @@ pipeline {
         }
         stage('develop') {
             when {
-                branch: 'develop'
+                environment name: 'BRANCH_NAME',  value: 'develop'
             }
             steps {
                 echo 'develop'          
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('staging') {
              when {
-                environment  name: 'BRANCH_NAME', value: 'staging'
+                environment name: 'BRANCH_NAME', value: 'staging'
             }
             steps {
                 echo 'staging'
@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Prod') {
              when {
-                environment  name: 'BRANCH_NAME', value: 'master'
+                environment name: 'BRANCH_NAME', value: 'master'
             }
             steps {
                 echo 'master'
