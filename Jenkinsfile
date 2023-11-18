@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('checkout') {
+            steps {
+                echo 'checkout'  
+            }
+        }
         stage('build') {
             steps {
                 echo 'build'
@@ -13,7 +18,7 @@ pipeline {
         }
         stage('develop') {
             when {
-                environment  'BRANCH_NAME', value: 'develop'
+                branch: 'develop'
             }
             steps {
                 echo 'develop'          
@@ -21,7 +26,7 @@ pipeline {
         }
         stage('staging') {
              when {
-                environment  'BRANCH_NAME', value: 'staging'
+                environment  name: 'BRANCH_NAME', value: 'staging'
             }
             steps {
                 echo 'staging'
@@ -29,7 +34,7 @@ pipeline {
         }
         stage('Prod') {
              when {
-                environment  'BRANCH_NAME', value: 'master'
+                environment  name: 'BRANCH_NAME', value: 'master'
             }
             steps {
                 echo 'master'
